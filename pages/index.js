@@ -1,6 +1,19 @@
 import Head from 'next/head'
-
+import confetti from 'https://cdn.skypack.dev/canvas-confetti'
+import Image from 'next/image'
+import logo from 'https://cml.didi.cn/doc/assets/cml-logo.png'
+// import antd from 'https://cdn.skypack.dev/antd';
+import RcPagination from 'https://cdn.skypack.dev/rc-pagination';
+import { useState } from "react";
+console.log('------> confetti', confetti);
+console.log('------> logo', logo);
+console.log('------> rcPagination', RcPagination);
 export default function Home() {
+    const [selectedOption, setSelectedOption] = useState(null)
+    const handleChange = (selectedOption) => {
+        setSelectedOption(selectedOption);
+        console.log(`Option selected:`, selectedOption);
+    };
   return (
     <div className="container">
       <Head>
@@ -17,6 +30,9 @@ export default function Home() {
           Get started by editing <code>pages/index.js</code>
         </p>
 
+        <Image src={logo} placeholder="blur" />
+        {/*<Button>antd 按钮</Button>*/}
+        <RcPagination/>
         <div className="grid">
           <a href="https://nextjs.org/docs" className="card">
             <h3>Documentation &rarr;</h3>
